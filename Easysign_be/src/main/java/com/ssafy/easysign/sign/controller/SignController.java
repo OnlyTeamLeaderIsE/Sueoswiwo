@@ -27,7 +27,6 @@ public class SignController {
 
     private final SignService signService;
 
-    // url 테스트 코드
     @GetMapping("/signUrl")
     public ResponseEntity<List<String>> getJihwaURLData(
             @RequestParam(value = "categoryname", required = false) String categoryName) {

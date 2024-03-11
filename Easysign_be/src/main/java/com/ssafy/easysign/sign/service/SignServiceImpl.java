@@ -29,9 +29,6 @@ public class SignServiceImpl implements SignService {
     public List<CategoryResponse> getCategoryList() {
         List<SignCategory> signCategories = signCategoryRepository.findAll();
         log.info("signCategories : " + signCategories);
-//        List<CategoryResponse> categoryResponses = signCategories.stream()
-//                .map(CategoryResponse::of)
-//                .toList();
         List<CategoryResponse> categoryResponses = signCategories.stream()
                 .map(signCategoryMapper::toCategoryResponse)
                 .toList();
@@ -46,9 +43,6 @@ public class SignServiceImpl implements SignService {
         Long categoryId = signCategory.getCategoryId();
         List<SignInfo> signInfos = signRepository.findAllByCategoryId(categoryId);
         log.info("signInfos : " + signInfos );
-        //        List<SignResponse2> signResponses = signInfos.stream()
-//                .map(SignResponse2::of)
-//                .toList();
         return signInfos.stream()
                 .map(signMapper::toSignResponse2)
                 .toList();
